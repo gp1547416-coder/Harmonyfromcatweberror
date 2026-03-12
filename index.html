@@ -1,42 +1,63 @@
-<div x-show="isDownForUpdates" 
-     x-cloak 
-     x-transition:enter="transition ease-out duration-500"
-     x-transition:enter-start="opacity-0"
-     x-transition:enter-end="opacity-100"
-     class="fixed inset-0 z-[1000] bg-black/60 backdrop-blur-2xl flex items-center justify-center p-8 text-center">
-    
-    <div class="max-w-xs w-full">
-        <div class="relative w-24 h-24 mx-auto mb-10">
-            <div class="absolute inset-0 bg-blue-500/30 rounded-full animate-ping" style="animation-duration: 3s;"></div>
-            
-            <div class="absolute inset-0 border-2 border-white/5 border-t-blue-500 rounded-full animate-spin" style="animation-duration: 1.5s;"></div>
-            
-            <div class="relative w-24 h-24 bg-black border border-white/10 rounded-full flex items-center justify-center shadow-2xl">
-                <div class="w-2 h-2 bg-blue-500 rounded-full animate-pulse shadow-[0_0_15px_#3b82f6]"></div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harmony System Sync</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&family=Inter:wght@300;400;600;800&display=swap');
+        [x-cloak] { display: none !important; }
+        .ping-slow { animation: ping 3s cubic-bezier(0, 0, 0.2, 1) infinite; }
+        @keyframes ping { 75%, 100% { transform: scale(2); opacity: 0; } }
+    </style>
+</head>
+<body class="bg-[#050505]">
+
+    <div x-data="{ isDownForUpdates: true }" 
+         x-show="isDownForUpdates" 
+         x-cloak 
+         x-transition:enter="transition ease-out duration-500"
+         x-transition:enter-start="opacity-0"
+         x-transition:enter-end="opacity-100"
+         class="fixed inset-0 z-[9999] bg-black/60 backdrop-blur-2xl flex items-center justify-center p-8 text-center font-family-['Inter']">
+        
+        <div class="max-w-xs w-full">
+            <div class="relative w-24 h-24 mx-auto mb-10">
+                <div class="absolute inset-0 bg-blue-500/30 rounded-full ping-slow"></div>
+                
+                <div class="absolute inset-0 border-2 border-white/5 border-t-blue-500 rounded-full animate-spin" style="animation-duration: 1.5s;"></div>
+                
+                <div class="relative w-24 h-24 bg-black border border-white/10 rounded-full flex items-center justify-center shadow-2xl">
+                    <div class="w-2 h-2 bg-blue-500 rounded-full animate-pulse shadow-[0_0_15px_#3b82f6]"></div>
+                </div>
             </div>
-        </div>
 
-        <div class="space-y-3">
-            <h1 class="text-2xl font-black tracking-tighter text-white uppercase italic">System Sync</h1>
-            <div class="h-[1px] w-12 bg-blue-500 mx-auto opacity-50"></div>
-            <p class="text-gray-400 text-sm font-medium leading-relaxed px-4">
-                The edge runtime is currently being reconfigured. Deployment services are temporarily suspended.
-            </p>
-        </div>
-
-        <div class="mt-10">
-            <div class="inline-flex items-center gap-2 bg-white/5 py-2 px-5 rounded-full border border-white/10">
-                <span class="relative flex h-2 w-2">
-                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                    <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
-                </span>
-                <span class="font-mono text-[10px] text-blue-400 uppercase tracking-[0.2em] font-bold">Ver 5.0.0-Beta</span>
+            <div class="space-y-3">
+                <h1 class="text-2xl font-black tracking-tighter text-white uppercase italic">System Sync</h1>
+                <div class="h-[1px] w-12 bg-blue-500 mx-auto opacity-50"></div>
+                <p class="text-gray-400 text-sm font-medium leading-relaxed px-4">
+                    Edge runtime reconfiguration in progress. Deployment services are temporarily suspended.
+                </p>
             </div>
-        </div>
 
-        <button @click="isDownForUpdates = false" 
-                class="mt-16 block mx-auto text-[8px] text-white/20 uppercase tracking-[0.5em] hover:text-white/60 transition-colors">
-            Bypass Sync
-        </button>
+            <div class="mt-10">
+                <div class="inline-flex items-center gap-2 bg-white/5 py-2 px-5 rounded-full border border-white/10">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+                    </span>
+                    <span class="font-mono text-[10px] text-blue-400 uppercase tracking-[0.2em] font-bold" style="font-family: 'Geist Mono', monospace;">Ver 5.0.0-PRO</span>
+                </div>
+            </div>
+
+            <button @click="isDownForUpdates = false" 
+                    class="mt-16 block mx-auto text-[8px] text-white/20 uppercase tracking-[0.5em] hover:text-white/60 transition-colors">
+                Bypass Sync
+            </button>
+        </div>
     </div>
-</div>
+
+</body>
+</html>
