@@ -1,0 +1,42 @@
+<div x-show="isDownForUpdates" 
+     x-cloak 
+     x-transition:enter="transition ease-out duration-500"
+     x-transition:enter-start="opacity-0"
+     x-transition:enter-end="opacity-100"
+     class="fixed inset-0 z-[1000] bg-black/60 backdrop-blur-2xl flex items-center justify-center p-8 text-center">
+    
+    <div class="max-w-xs w-full">
+        <div class="relative w-24 h-24 mx-auto mb-10">
+            <div class="absolute inset-0 bg-blue-500/30 rounded-full animate-ping" style="animation-duration: 3s;"></div>
+            
+            <div class="absolute inset-0 border-2 border-white/5 border-t-blue-500 rounded-full animate-spin" style="animation-duration: 1.5s;"></div>
+            
+            <div class="relative w-24 h-24 bg-black border border-white/10 rounded-full flex items-center justify-center shadow-2xl">
+                <div class="w-2 h-2 bg-blue-500 rounded-full animate-pulse shadow-[0_0_15px_#3b82f6]"></div>
+            </div>
+        </div>
+
+        <div class="space-y-3">
+            <h1 class="text-2xl font-black tracking-tighter text-white uppercase italic">System Sync</h1>
+            <div class="h-[1px] w-12 bg-blue-500 mx-auto opacity-50"></div>
+            <p class="text-gray-400 text-sm font-medium leading-relaxed px-4">
+                The edge runtime is currently being reconfigured. Deployment services are temporarily suspended.
+            </p>
+        </div>
+
+        <div class="mt-10">
+            <div class="inline-flex items-center gap-2 bg-white/5 py-2 px-5 rounded-full border border-white/10">
+                <span class="relative flex h-2 w-2">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+                </span>
+                <span class="font-mono text-[10px] text-blue-400 uppercase tracking-[0.2em] font-bold">Ver 5.0.0-Beta</span>
+            </div>
+        </div>
+
+        <button @click="isDownForUpdates = false" 
+                class="mt-16 block mx-auto text-[8px] text-white/20 uppercase tracking-[0.5em] hover:text-white/60 transition-colors">
+            Bypass Sync
+        </button>
+    </div>
+</div>
